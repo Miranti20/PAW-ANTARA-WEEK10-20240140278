@@ -37,6 +37,7 @@ exports.getChatHistory = async (req, res) => {
     const history = await ChatHistory.findAll({
       where: { userId: req.user ? req.user.id : req.query.userId },
       order: [['createdAt', 'DESC']] 
+      
     });
 
     res.status(200).json({
